@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Clock } from "@bigbinary/neeto-icons";
+import { Clock } from "neetoicons";
 import { Tag, Tooltip, Avatar } from "neetoui";
 import { Header } from "neetoui/layouts";
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { MenuVertical } from "@bigbinary/neeto-icons";
+import { MenuVertical } from "neetoicons";
 import { Dropdown } from "neetoui";
 
 const CardOptionsDropdown = ({
