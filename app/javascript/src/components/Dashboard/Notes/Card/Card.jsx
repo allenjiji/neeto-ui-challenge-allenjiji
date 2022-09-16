@@ -1,22 +1,24 @@
-// @ts-nocheck
 import React from "react";
 
-import { MenuVertical, Clock } from "@bigbinary/neeto-icons";
-import { Tag, Tooltip, Avatar, Dropdown } from "neetoui";
+import { Clock } from "@bigbinary/neeto-icons";
+import { Tag, Tooltip, Avatar } from "neetoui";
 import { Header } from "neetoui/layouts";
 
+import CardOptionsDropdown from "./CardOptionsDropdown";
 import { formatDateTime, getRelativeTime } from "./utils";
 
-const dropdown = (
-  <Dropdown buttonStyle="text" icon={MenuVertical}>
-    <li> Edit </li>
-    <li>Delete</li>
-  </Dropdown>
-);
-
-const Card = ({ note }) => (
+const Card = ({ note, setShowDeleteAlert, setSelectedNoteId }) => (
   <div className="m-3 w-full  border border-gray-300 bg-white p-3 shadow-sm  dark:border-gray-700 dark:bg-gray-800 ">
-    <Header actionBlock={dropdown} title={note.title} />
+    <Header
+      title={note.title}
+      actionBlock={
+        <CardOptionsDropdown
+          noteId={note.id}
+          setSelectedNoteId={setSelectedNoteId}
+          setShowDeleteAlert={setShowDeleteAlert}
+        />
+      }
+    />
     <div className="mb-5">{`"${note.description}"`}</div>
     <hr />
     <div className="mt-3 flex justify-between">
