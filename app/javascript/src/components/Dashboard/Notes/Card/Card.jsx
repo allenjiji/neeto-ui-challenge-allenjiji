@@ -14,22 +14,20 @@ const dropdown = (
   </Dropdown>
 );
 
-const Card = ({
-  title = "title",
-  explanation = "Hello, this is the explanation for the text Hello, this is the explanation for the text Hello, this is the explanation for the text",
-  tag = "Getting Started",
-  creationTime,
-}) => (
+const Card = ({ note }) => (
   <div className="m-3 w-full  border border-gray-300 bg-white p-3 shadow-sm  dark:border-gray-700 dark:bg-gray-800 ">
-    <Header actionBlock={dropdown} title={title} />
-    <div className="mb-5">{`"${explanation}"`}</div>
+    <Header actionBlock={dropdown} title={note.title} />
+    <div className="mb-5">{`"${note.description}"`}</div>
     <hr />
     <div className="mt-3 flex justify-between">
-      <Tag label={tag} size="small" />
+      <Tag label="Getting Started" size="small" />
       <div className="flex items-center space-x-2">
         <Clock size={16} />
-        <Tooltip content={formatDateTime(creationTime)} position="bottom-start">
-          <div> {`Created ${getRelativeTime(creationTime)}`}</div>
+        <Tooltip
+          content={formatDateTime(note.created_at)}
+          position="bottom-start"
+        >
+          <div> {`Created ${getRelativeTime(note.created_at)}`}</div>
         </Tooltip>
         <Avatar
           size="small"

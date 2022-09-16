@@ -1,10 +1,9 @@
 // @ts-nocheck
 import React, { useState, useEffect } from "react";
 
-import { Search, Settings, Plus } from "@bigbinary/neeto-icons";
 import EmptyNotesListImage from "images/EmptyNotesList";
-import { Button, PageLoader, Typography } from "neetoui";
-import { Container, Header, MenuBar } from "neetoui/layouts";
+import { Button, PageLoader } from "neetoui";
+import { Container, Header } from "neetoui/layouts";
 
 import notesApi from "apis/notes";
 import EmptyState from "components/Common/EmptyState";
@@ -12,6 +11,8 @@ import EmptyState from "components/Common/EmptyState";
 import Card from "./Card/Card";
 import DeleteAlert from "./DeleteAlert";
 import NewNotePane from "./Pane/Create";
+
+import SideMenuBar from "../SideMenuBar";
 
 const Notes = () => {
   const [loading, setLoading] = useState(true);
@@ -43,58 +44,7 @@ const Notes = () => {
 
   return (
     <>
-      <MenuBar showMenu={showMenu} title="Contacts">
-        <MenuBar.Block active count={13} label="All" />
-        <MenuBar.Block count={2} label="Users" />
-        <MenuBar.Block count={7} label="Leads" />
-        <MenuBar.Block count={4} label="Visitors" />
-        <MenuBar.SubTitle
-          iconProps={[
-            {
-              icon: Search,
-            },
-          ]}
-        >
-          <Typography
-            component="h4"
-            style="h5"
-            textTransform="uppercase"
-            weight="bold"
-          >
-            Segments
-          </Typography>
-        </MenuBar.SubTitle>
-        <MenuBar.Block count={80} label="Europe" />
-        <MenuBar.Block count={60} label="Middle-East" />
-        <MenuBar.Block count={60} label="Asia" />
-        <MenuBar.AddNew label="Add New Segments" />
-        <MenuBar.SubTitle
-          iconProps={[
-            {
-              icon: Settings,
-            },
-            {
-              icon: Plus,
-            },
-            {
-              icon: Search,
-            },
-          ]}
-        >
-          <Typography
-            component="h4"
-            style="h5"
-            textTransform="uppercase"
-            weight="bold"
-          >
-            Tags
-          </Typography>
-        </MenuBar.SubTitle>
-        <MenuBar.Block count={80} label="Europe" />
-        <MenuBar.Block count={60} label="Middle-East" />
-        <MenuBar.Block count={60} label="Asia" />
-        <MenuBar.AddNew label="Add New Tag" />
-      </MenuBar>
+      <SideMenuBar showMenu={showMenu} />
       <Container>
         <Header
           menuBarToggle={() => setShowMenu(!showMenu)}
@@ -112,14 +62,7 @@ const Notes = () => {
           }}
         />
         {notes.length ? (
-          notes.map(note => (
-            <Card
-              creationTime={new Date("2/8/22")}
-              key={note.title}
-              tags={"Getting started"}
-              title={note.title}
-            />
-          ))
+          notes.map(note => <Card key={note.id} note={note} />)
         ) : (
           <EmptyState
             image={EmptyNotesListImage}
