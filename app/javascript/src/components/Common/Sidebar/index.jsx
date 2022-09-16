@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from "react";
 
 import { Sidebar as NeetoUISidebar } from "neetoui/layouts";
