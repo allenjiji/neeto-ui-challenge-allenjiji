@@ -12,7 +12,6 @@ const Contacts = () => {
       <SideMenuBar showMenu={showMenu} title="Contacts" />
       <Container>
         <Header menuToggleBar={() => setShowMenu(!showMenu)} title="Contacts" />
-        <div>Hello</div>
       </Container>
     </>
   );

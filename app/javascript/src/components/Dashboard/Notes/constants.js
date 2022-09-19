@@ -3,7 +3,7 @@ import * as yup from "yup";
 export const NOTES_FORM_INITIAL_FORM_VALUES = {
   title: "",
   description: "",
-  assignedContacts: null,
+  assignedContact: null,
   tags: [],
 };
 
@@ -62,7 +62,7 @@ export const TAGS_DROPDOWN_DATA = [
 export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
   title: yup.string().required("Title is required"),
   description: yup.string().required("Description is required"),
-  assignedContacts: yup
+  assignedContact: yup
     .object({
       label: yup
         .string()
