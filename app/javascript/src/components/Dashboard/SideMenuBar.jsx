@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from "react";
 
-import { Search, Settings, Plus } from "@bigbinary/neeto-icons";
+import { Search, Settings, Plus } from "neetoicons";
 import { Typography } from "neetoui";
 import { MenuBar } from "neetoui/layouts";
 

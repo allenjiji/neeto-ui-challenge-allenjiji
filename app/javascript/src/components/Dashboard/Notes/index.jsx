@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, { useState, useEffect } from "react";
 
 import EmptyNotesListImage from "images/EmptyNotesList";
@@ -19,7 +18,7 @@ const Notes = () => {
   const [showNewNotePane, setShowNewNotePane] = useState(false);
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedNoteIds, setSelectedNoteIds] = useState([]);
+  const [selectedNoteId, setSelectedNoteId] = useState([]);
   const [notes, setNotes] = useState([]);
   const [showMenu, setShowMenu] = useState(true);
   useEffect(() => {
@@ -62,7 +61,14 @@ const Notes = () => {
           }}
         />
         {notes.length ? (
-          notes.map(note => <Card key={note.id} note={note} />)
+          notes.map(note => (
+            <Card
+              key={note.id}
+              note={note}
+              setSelectedNoteId={setSelectedNoteId}
+              setShowDeleteAlert={setShowDeleteAlert}
+            />
+          ))
         ) : (
           <EmptyState
             image={EmptyNotesListImage}
@@ -80,8 +86,8 @@ const Notes = () => {
         {showDeleteAlert && (
           <DeleteAlert
             refetch={fetchNotes}
-            selectedNoteIds={selectedNoteIds}
-            setSelectedNoteIds={setSelectedNoteIds}
+            selectedNoteIds={selectedNoteId}
+            setSelectedNoteIds={setSelectedNoteId}
             onClose={() => setShowDeleteAlert(false)}
           />
         )}

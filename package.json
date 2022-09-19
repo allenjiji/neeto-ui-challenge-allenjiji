@@ -71,6 +71,7 @@
     "core-js": "3.21.1",
     "dayjs": "^1.11.5",
     "formik": "^2.2.9",
+    "ignore-loader": "^0.1.2",
     "js-logger": "^1.6.1",
     "prop-types": "^15.8.1",
     "ramda": "^0.28.0",
