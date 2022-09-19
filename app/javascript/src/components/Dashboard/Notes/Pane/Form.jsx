@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { Formik, Form } from "formik";
+import { Check } from "neetoicons";
 import { Button, Pane } from "neetoui";
 import { Input, Select } from "neetoui/formik";
 
@@ -77,6 +78,7 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
             <Button
               className="mr-3"
               disabled={isSubmitting}
+              icon={Check}
               label={isEdit ? "Update" : "Save Changes"}
               loading={isSubmitting}
               size="large"
