@@ -43,7 +43,7 @@ const Notes = () => {
 
   return (
     <>
-      <SideMenuBar showMenu={showMenu} />
+      <SideMenuBar showMenu={showMenu} title="Notes" />
       <Container>
         <Header
           menuBarToggle={() => setShowMenu(!showMenu)}

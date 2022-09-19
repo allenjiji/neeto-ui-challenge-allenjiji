@@ -5,8 +5,8 @@ import { Search, Settings, Plus } from "neetoicons";
 import { Typography } from "neetoui";
 import { MenuBar } from "neetoui/layouts";
 
-const SideMenuBar = showMenu => (
-  <MenuBar showMenu={showMenu} title="Contacts">
+const SideMenuBar = ({ showMenu, title }) => (
+  <MenuBar showMenu={showMenu} title={title}>
     <MenuBar.Block active count={13} label="All" />
     <MenuBar.Block count={2} label="Users" />
     <MenuBar.Block count={7} label="Leads" />
