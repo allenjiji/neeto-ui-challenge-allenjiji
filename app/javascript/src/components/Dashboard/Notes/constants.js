@@ -7,27 +7,6 @@ export const NOTES_FORM_INITIAL_FORM_VALUES = {
   tags: [],
 };
 
-export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
-  title: yup.string().required("Title is required"),
-  description: yup.string().required("Description is required"),
-  assignedContacts: yup
-    .object({
-      label: yup.string().required(),
-      value: yup.number().required(),
-    })
-    .nullable()
-    .required("Assigned contact is required"),
-  tags: yup
-    .array()
-    .of(
-      yup.object({
-        label: yup.string().required(),
-        value: yup.number().required(),
-      })
-    )
-    .min(1, "Tags are required"),
-});
-
 export const NOTES_TABLE_COLUMN_DATA = [
   {
     title: "Title",
@@ -46,36 +25,61 @@ export const NOTES_TABLE_COLUMN_DATA = [
 export const CONTACTS_DROPDOWN_DATA = [
   {
     label: "Ronalds Richards",
-    value: 1,
+    value: "ronald-1",
   },
   {
     label: "Jacob Jones",
-    value: 2,
+    value: "jacob-1",
   },
   {
     label: "Ronalds Richards",
-    value: 3,
+    value: "ronald-2",
   },
   {
     label: "Jacob Jones",
-    value: 4,
+    value: "jacob-2",
   },
 ];
 export const TAGS_DROPDOWN_DATA = [
   {
     label: "Getting started",
-    value: 1,
+    value: "getting-started",
   },
   {
     label: "Onboarding",
-    value: 2,
+    value: "onboarding",
   },
   {
     label: "User Flow",
-    value: 3,
+    value: "user-flow",
   },
   {
     label: "UX",
-    value: 4,
+    value: "ux",
   },
 ];
+
+export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
+  title: yup.string().required("Title is required"),
+  description: yup.string().required("Description is required"),
+  assignedContacts: yup
+    .object({
+      label: yup
+        .string()
+        .oneOf(CONTACTS_DROPDOWN_DATA.map(contact => contact.label)),
+      value: yup
+        .string()
+        .oneOf(CONTACTS_DROPDOWN_DATA.map(contact => contact.value)),
+    })
+    .nullable()
+    .required("Assigned contact is required"),
+  tags: yup
+    .array()
+    .of(
+      yup.object({
+        label: yup.string().oneOf(TAGS_DROPDOWN_DATA.map(tag => tag.label)),
+        value: yup.string().oneOf(TAGS_DROPDOWN_DATA.map(tag => tag.value)),
+      })
+    )
+    .min(1, "Atleast one tag is required"),
+});
