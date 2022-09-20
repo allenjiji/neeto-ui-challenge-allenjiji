@@ -54,24 +54,22 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
               name="description"
             />
             <Select
-              defaultMenuIsClose
               isSearchable
               required
               className="w-full flex-grow-0"
               label="Assigned Contacts"
-              name="assignedContacts"
+              name="assignedContact"
               options={CONTACTS_DROPDOWN_DATA}
-              placeholder="Select Role"
+              placeholder="Select contact"
             />
             <Select
-              defaultMenuIsClose
               isMulti
               required
               className="w-full flex-grow-0"
               label="Tags"
               name="tags"
               options={TAGS_DROPDOWN_DATA}
-              placeholder="Select Role"
+              placeholder="Select Tags"
             />
           </Pane.Body>
           <Pane.Footer>

@@ -15,7 +15,7 @@ const CardOptionsDropdown = ({
   return (
     <Dropdown buttonStyle="text" icon={MenuVertical}>
       <li> Edit </li>
-      <li onClick={() => handleDelete()}>Delete</li>
+      <li onClick={handleDelete}>Delete</li>
     </Dropdown>
   );
 };
