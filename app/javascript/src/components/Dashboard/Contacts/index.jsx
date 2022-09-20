@@ -4,11 +4,13 @@ import { Button, Table } from "neetoui";
 import { Container, Header } from "neetoui/layouts";
 
 import { CONTACTS_TABLE_COLUMNS, CONTACTS_TABLE_ROWS } from "./constants";
+import NewContactPane from "./Pane/Create";
 
 import SideMenuBar from "../SideMenuBar";
 
 const Contacts = () => {
   const [showMenu, setShowMenu] = useState(true);
+  const [showNewContactPane, setShowNewContactPane] = useState(false);
 
   return (
     <>
@@ -21,7 +23,7 @@ const Contacts = () => {
             <Button
               icon="ri-add-line"
               label="Add New Contact"
-              onClick={() => {}}
+              onClick={() => setShowNewContactPane(true)}
             />
           }
         />
@@ -30,6 +32,10 @@ const Contacts = () => {
           currentPageNumber={1}
           defaultPageSize={2}
           rowData={CONTACTS_TABLE_ROWS}
+        />
+        <NewContactPane
+          setShowPane={setShowNewContactPane}
+          showPane={showNewContactPane}
         />
       </Container>
     </>
