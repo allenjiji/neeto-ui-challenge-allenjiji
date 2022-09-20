@@ -58,7 +58,7 @@ const Form = ({ onClose, isEdit }) => {
               required
               className="w-full flex-grow-0"
               label="Role"
-              name="userRole"
+              name="role"
               options={ROLES}
               placeholder="Select a role"
             />

@@ -27,7 +27,7 @@ const CONTACT_FORM_INITIAL_VALUES = {
   firstName: "",
   lastName: "",
   email: "",
-  userRole: null,
+  role: null,
 };
 
 const ROLES = [
@@ -52,7 +52,7 @@ const CONTACT_FORM_VALIDATION_SCHEMA = yup.object().shape({
     .string()
     .email("Enter a valid email")
     .required("Email is required"),
-  userRole: yup
+  role: yup
     .object()
     .shape({
       label: yup.string().oneOf(ROLES.map(role => role.label)),
