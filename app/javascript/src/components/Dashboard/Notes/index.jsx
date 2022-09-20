@@ -20,7 +20,7 @@ const Notes = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedNoteId, setSelectedNoteId] = useState([]);
   const [notes, setNotes] = useState([]);
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
   useEffect(() => {
     fetchNotes();
   }, []);
@@ -46,7 +46,7 @@ const Notes = () => {
       <SideMenuBar showMenu={showMenu} title="Notes" />
       <Container>
         <Header
-          menuBarToggle={() => setShowMenu(!showMenu)}
+          menuBarToggle={() => setShowMenu(prevState => !prevState)}
           title="All Notes"
           actionBlock={
             <Button

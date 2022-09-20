@@ -11,7 +11,7 @@ import NewContactPane from "./Pane/Create";
 import SideMenuBar from "../SideMenuBar";
 
 const Contacts = () => {
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
   const [showNewContactPane, setShowNewContactPane] = useState(false);
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
 
@@ -20,7 +20,7 @@ const Contacts = () => {
       <SideMenuBar showMenu={showMenu} title="Contacts" />
       <Container>
         <Header
-          menuBarToggle={() => setShowMenu(!showMenu)}
+          menuBarToggle={() => setShowMenu(prevState => !prevState)}
           title="All Contacts"
           actionBlock={
             <Button
