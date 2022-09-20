@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Formik, Form } from "formik";
+import { Formik, Form as FormikForm } from "formik";
 import { Check } from "neetoicons";
 import { Pane, Button, Toastr } from "neetoui";
 import { Input, Select } from "neetoui/formik";
@@ -11,7 +11,7 @@ import {
   CONTACT_FORM_INITIAL_VALUES,
 } from "../constants";
 
-const ContactCreationForm = ({ onClose, isEdit }) => {
+const Form = ({ onClose, isEdit }) => {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = () => {
@@ -28,7 +28,7 @@ const ContactCreationForm = ({ onClose, isEdit }) => {
       onSubmit={handleSubmit}
     >
       {({ isSubmitting }) => (
-        <Form className="w-full">
+        <FormikForm className="w-full">
           <Pane.Body className=" space-y-5">
             <div className="flex w-full space-x-2">
               <Input
@@ -82,10 +82,10 @@ const ContactCreationForm = ({ onClose, isEdit }) => {
               onClick={onClose}
             />
           </Pane.Footer>
-        </Form>
+        </FormikForm>
       )}
     </Formik>
   );
 };
 
-export default ContactCreationForm;
+export default Form;

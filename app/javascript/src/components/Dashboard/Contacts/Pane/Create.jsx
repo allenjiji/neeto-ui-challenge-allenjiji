@@ -4,7 +4,7 @@ import { Pane, Typography } from "neetoui";
 
 import Form from "./Form";
 
-const NewContactPane = ({ showPane, setShowPane }) => {
+const Create = ({ showPane, setShowPane }) => {
   const onClose = () => setShowPane(false);
   return (
     <Pane isOpen={showPane} onClose={onClose}>
@@ -18,4 +18,4 @@ const NewContactPane = ({ showPane, setShowPane }) => {
   );
 };
 
-export default NewContactPane;
+export default Create;

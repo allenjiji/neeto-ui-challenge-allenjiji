@@ -13,13 +13,6 @@ const renderNameWithAvatarAndRole = (name, { role, avatarImageUrl }) => (
   </div>
 );
 
-// const renderDropDown = setShowDeleteAlert => (
-//   <Dropdown buttonStyle="text" icon={MenuHorizontal} strategy="fixed">
-//     <li>Edit</li>
-//     <li onClick={() => setShowDeleteAlert(true)}>Delete</li>
-//   </Dropdown>
-// );
-
 export const getTableColumns = setShowDeleteAlert => [
   {
     title: "Name and Role",
