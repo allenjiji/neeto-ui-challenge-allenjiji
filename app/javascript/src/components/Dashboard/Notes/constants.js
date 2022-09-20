@@ -63,7 +63,8 @@ export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
   title: yup.string().required("Title is required"),
   description: yup.string().required("Description is required"),
   assignedContact: yup
-    .object({
+    .object()
+    .shape({
       label: yup
         .string()
         .oneOf(CONTACTS_DROPDOWN_DATA.map(contact => contact.label)),
@@ -76,7 +77,7 @@ export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
   tags: yup
     .array()
     .of(
-      yup.object({
+      yup.object().shape({
         label: yup.string().oneOf(TAGS_DROPDOWN_DATA.map(tag => tag.label)),
         value: yup.string().oneOf(TAGS_DROPDOWN_DATA.map(tag => tag.value)),
       })
