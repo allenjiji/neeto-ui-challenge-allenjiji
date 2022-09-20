@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Button, Table } from "neetoui";
 import { Container, Header } from "neetoui/layouts";
 
-import { CONTACTS_TABLE_COLUMNS, CONTACTS_TABLE_ROWS } from "./constants.jsx";
+import { CONTACTS_TABLE_COLUMNS, CONTACTS_TABLE_ROWS } from "./constants";
 
 import SideMenuBar from "../SideMenuBar";
 

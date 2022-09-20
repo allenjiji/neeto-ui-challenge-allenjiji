@@ -57,10 +57,10 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
               isSearchable
               required
               className="w-full flex-grow-0"
-              label="Assigned Contacts"
+              label="Assigned contacts"
               name="assignedContact"
               options={CONTACTS_DROPDOWN_DATA}
-              placeholder="Select contact"
+              placeholder="Select a contact"
             />
             <Select
               isMulti
@@ -69,7 +69,7 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
               label="Tags"
               name="tags"
               options={TAGS_DROPDOWN_DATA}
-              placeholder="Select Tags"
+              placeholder="Select the tags"
             />
           </Pane.Body>
           <Pane.Footer>

@@ -40,12 +40,10 @@ const CONTACTS_TABLE_COLUMNS = [
     key: "menu",
     width: 150,
     render: () => (
-      <div>
-        <Dropdown buttonStyle="text" icon={MenuHorizontal} strategy="fixed">
-          <li> Edit </li>
-          <li> Delete </li>
-        </Dropdown>
-      </div>
+      <Dropdown buttonStyle="text" icon={MenuHorizontal} strategy="fixed">
+        <li> Edit </li>
+        <li> Delete </li>
+      </Dropdown>
     ),
   },
 ];
