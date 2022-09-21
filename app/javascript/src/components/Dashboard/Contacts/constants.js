@@ -2,6 +2,7 @@ import * as yup from "yup";
 
 const CONTACTS_TABLE_ROWS = [
   {
+    id: 1,
     name: "Ronald Richards",
     email: "albert@borer.com",
     created_at: "Jun 28, 2022",
@@ -9,6 +10,7 @@ const CONTACTS_TABLE_ROWS = [
     avatarImageUrl: "https://i.pravatar.cc/300",
   },
   {
+    id: 2,
     name: "Jacob Jones",
     email: "albert@borer.com",
     created_at: "Jun 28, 2022",
@@ -16,6 +18,7 @@ const CONTACTS_TABLE_ROWS = [
     avatarImageUrl: "https://i.pravatar.cc/300",
   },
   {
+    id: 3,
     name: "Ronald Richards",
     email: "albert@borer.com",
     created_at: "Jun 28, 2022",
