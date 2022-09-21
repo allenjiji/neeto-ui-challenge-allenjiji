@@ -3,21 +3,24 @@ import React, { useState } from "react";
 import { Button, Table } from "neetoui";
 import { Container, Header } from "neetoui/layouts";
 
-import { CONTACTS_TABLE_COLUMNS, CONTACTS_TABLE_ROWS } from "./constants";
+import { getTableColumns } from "./column";
+import { CONTACTS_TABLE_ROWS } from "./constants";
+import DeleteAlert from "./DeleteAlert";
 import NewContactPane from "./Pane/Create";
 
 import SideMenuBar from "../SideMenuBar";
 
 const Contacts = () => {
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
   const [showNewContactPane, setShowNewContactPane] = useState(false);
+  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
 
   return (
     <>
       <SideMenuBar showMenu={showMenu} title="Contacts" />
       <Container>
         <Header
-          menuBarToggle={() => setShowMenu(!showMenu)}
+          menuBarToggle={() => setShowMenu(prevState => !prevState)}
           title="All Contacts"
           actionBlock={
             <Button
@@ -28,11 +31,14 @@ const Contacts = () => {
           }
         />
         <Table
-          columnData={CONTACTS_TABLE_COLUMNS}
+          columnData={getTableColumns(setShowDeleteAlert)}
           currentPageNumber={1}
           defaultPageSize={2}
           rowData={CONTACTS_TABLE_ROWS}
         />
+        {showDeleteAlert && (
+          <DeleteAlert onClose={() => setShowDeleteAlert(false)} />
+        )}
         <NewContactPane
           setShowPane={setShowNewContactPane}
           showPane={showNewContactPane}
